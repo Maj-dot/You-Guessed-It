@@ -1,0 +1,14 @@
+//GLobal Variables: 
+    //`wordToGuess` will hold the word player needs to guess
+    //`spaceMan` an array that will hold the guessed letter
+    //`incorrectGuesses` keeps track of the number of incorrect guesses
+    //`maxGuesses` is the maxium number of incorrect guesses allowed
+    //`gameOver` a boolean variable stating if the game is over
+    //`wordDisplayArea`, `keyboardArea`, `scoreDisplay`, `resetButton` variable cache the DOM elements
+
+
+//Global Functions:
+    //'initializeGame` will set or reset the global variables
+    //`renderGameState` will update the game state on the webpage
+    //`handleClick` handles the letter guesses when a keyboard button is clicked 
+    //`resetGame` resets the game state by calling `initializeGame`    
