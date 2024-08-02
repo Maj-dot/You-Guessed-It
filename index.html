@@ -10,7 +10,17 @@
 <body>
     <div class="game-container">
         <div id="wordDisplayArea"></div>
-        <div id="scoreDisplay"></div>
+        <div id="scoreDisplay">Remaining Attempts: <span id="remainingAttempts"></span></div>
+        <button id="resetButton">Restart</button>
+        <button id="newGameButton">New Game</button>
+        <div id="keyBoardButton"></div>
+    </div>
+
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="/images/background-video.mp4" type="video/mp4">
+            <source src="/image/background-video.webm" type="video/webm"
+        </video>
     </div>
 </body>
 </html>
