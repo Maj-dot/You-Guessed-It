@@ -26,18 +26,42 @@ keyBoardButtons.forEach(keyBoardButton => {
     keyBoardButton.addEventListener('click', handleGuess);
 });
 
-
-
-
 /*----- functions -----*/
 // A function to get a random word from the wordToGuess array
 function getRandomWord() {
     const randomIndex = Math.floor(Math.random() * wordToGuess.length);
-    return wordToGuess[randomIndex];
+    return wordToGuess[randomIndex].toUpperCase();
 }
 
 function initGame() {
    const randomWord = getRandomWord(); // Call function to get a random word
    //console.log(randomWord);
-}
+   sneaker = []; 
+   incorrectGuesses = 0;
+   gameOver = false;
+   score = 0;
+   updateDisplay();
+};
 
+function resetGame() {
+    sneaker = [];
+    incorrectGuesses = 0;
+    gameOver = false;
+    score = 0;
+    updateDisplay();
+};
+
+function updateDisplay () {
+    renderWordDisplay();
+    renderIncorrectGuesses();
+    renderScore();
+    renderkeyboardButtons();
+};
+
+function renderWordDisplay() {}
+
+function renderIncorrectGuesses() {}
+
+function renderScore() {}
+
+function keyBoardButtons() {}
