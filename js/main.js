@@ -3,35 +3,28 @@ const maxGuesses = 6; // Maxium number of incorrect guesses
  
 /*----- state variables -----*/
 let wordToGuess = ["Nike", "Jordan", "Adidas", "Converse", "Puma", "Vans", "New Balance", "Reebok", "Saucony", "ASICS"];
+let currentWord = '';
 let sneaker = []; //Guessed Letters
 let incorrectGuesses = 0;
 let gameOver = false;
+let score = 0;
+
 /*----- cached elements  -----*/
 const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row');
 const scoreDisplay =  document.getElementById('scoreDisplay');
+const incorrectGuessesDisplay = document.getElementById('incorrectGuessesDisplay')
 const resetButton = document.getElementById('resetButton');
-const playButton = document.getElementById('playButton');
+const newGameButton = document.getElementById('newGameButton');
 
 /*----- event listeners -----*/
-resetButton.addEventListener('click', () => {
-    console.log('resetButton clicked!');
-});
+resetButton.addEventListener('click', resetGame);
 
-newGameButton.addEventListener('click', () => {
-    console.log('newGameButton clicked!');
-});
-
-playButton.addEventListener('click', () => {
-    console.log('playButton clicked!');
-});
+newGameButton.addEventListener('click', initGame);
 
 keyBoardButtons.forEach(keyBoardButton => {
-    keyBoardButton.addEventListener('click', () => {
-        console.log('keyboardButton clicked!');
-    });
+    keyBoardButton.addEventListener('click', handleGuess);
 });
-
 
 
 
@@ -44,7 +37,7 @@ function getRandomWord() {
 }
 
 function initGame() {
-   const randomWord = getRandomWord(); // Function to get a random word
-   console.log('Random word selected:', randomWord);
+   const randomWord = getRandomWord(); // Call function to get a random word
+   //console.log(randomWord);
 }
 

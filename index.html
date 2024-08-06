@@ -10,7 +10,7 @@
 <body>
    <div id="gameContainer">   
     <h1>JUST GUESS IT!</h1>
-    <div id="wordDisplayArea"></div>
+    <div id="wordDisplayArea">_ _ _ _ _</div>
     <!--Buttons for each letter of the alphabet-->
     <div id="keyboardButtons">
     <div class="row">   
@@ -47,7 +47,7 @@
     </div>
   </div>
 
-    <!--Multiple images to display incorrect guesses-->
+    <!--display incorrect guesses-->
     <div id="scoreDisplay">Incorrect Guesses: 0</div> 
     <!--Clickable buttons to restart or set a new game-->
     <div id="resetButton">
@@ -56,11 +56,6 @@
     <div id="newGameButton">
         <button value="newGameButton">NEW GAME</button>
     </div>   
-    <!--Clikable button to start playing game-->
-    <div id="playButton">
-        <button value="playButton">PLAY</button>
-    </div>
-
     <!--Stored sneaker brands for the user to guess in the game -->
     <div id="wordsList" data-words="Nike,Jordan,Adidas,Converse,Puma,Vans,New Balance,Reebok,Saucony,ASICS" style="display:none;"></div>
 </body>
