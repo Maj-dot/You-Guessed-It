@@ -11,20 +11,24 @@ const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row');
 const scoreDisplay =  document.getElementById('scoreDisplay');
 const resetButton = document.getElementById('resetButton');
-const newGameButton = document.getElementById('newGameButton');
+const playButton = document.getElementById('playButton');
 
 /*----- event listeners -----*/
 resetButton.addEventListener('click', () => {
     console.log('resetButton clicked!');
 });
 
-
+newGameButton.addEventListener('click', () => {
+    console.log('newGameButton clicked!');
+});
 
 keyBoardButtons.forEach(keyBoardButton => {
     keyBoardButton.addEventListener('click', () => {
         console.log('keyboardButton clicked!');
     });
-});
+})
+
+
 
 /*----- functions -----*/
 function initGame() {

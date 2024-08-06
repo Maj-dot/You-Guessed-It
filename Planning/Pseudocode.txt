@@ -11,6 +11,7 @@ const keyBoardButton = document.getElementById('keyBoardButton');
 const scoreDisplay = document.getElementById('scoreDisplay');
 const resetButton = document.getElementById('resetButton');
 const newGameButton = document.getElementById('newGameButton');
+const startButton = document.getElementById('startButton');
 const wordsList = document.getElementById('wordsList');
 
 // 3) Initialize the game
