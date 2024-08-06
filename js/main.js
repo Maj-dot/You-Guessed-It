@@ -8,11 +8,29 @@ let incorrectGuesses = 0;
 let gameOver = false;
 /*----- cached elements  -----*/
 const wordDisplayArea = document.getElementById('wordDisplayArea');
-const keyBoardButton = document.getElementById('keyBoardButton');
+const keyBoardButtons = document.querySelectorAll('.row');
 const scoreDisplay =  document.getElementById('scoreDisplay');
 const resetButton = document.getElementById('resetButton');
+const newGameButton = document.getElementById('newGameButton');
 
 /*----- event listeners -----*/
+resetButton.addEventListener('click', () => {
+    console.log('resetButton clicked!');
+});
 
+
+
+keyBoardButtons.forEach(keyBoardButton => {
+    keyBoardButton.addEventListener('click', () => {
+        console.log('keyboardButton clicked!');
+    });
+});
 
 /*----- functions -----*/
+function initGame() {
+    //will add more code later
+};
+
+function renderGameState() {
+    //will add more code later
+};

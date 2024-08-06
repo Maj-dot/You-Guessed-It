@@ -14,7 +14,7 @@ const newGameButton = document.getElementById('newGameButton');
 const wordsList = document.getElementById('wordsList');
 
 // 3) Initialize the game
-function initializeGame() {
+function initGame() {
     wordToGuess = getRandomWord(); // Function to get a random word
     sneaker = [];
     incorrectGuesses = 0;
