@@ -3,24 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Guesset!</title>
+    <title>JUST GUESS IT!</title>
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
 </head>
 <body>
-    <div class="game-container">
-        <div id="wordDisplayArea"></div>
-        <div id="scoreDisplay">Remaining Attempts: <span id="remainingAttempts"></span></div>
-        <button id="resetButton">Restart</button>
-        <button id="newGameButton">New Game</button>
-        <div id="keyBoardButton"></div>
+   <div id="gameContainer">   
+    <h1>JUST GUESS IT!</h1>
+    <div id="wordDisplayArea"></div>
+    <!--Buttons for each letter of the alphabet-->
+    <div id="keyboardButton">
+    <div class="row">   
+        <button value="A">A</button>
+        <button value="B">B</button>
+        <button value="C">C</button>
+        <button value="D">D</button>
+        <button value="E">E</button>
+        <button value="F">F</button>
+        <button value="G">G</button>
+        <button value="H">H</button>
+        <button value="I">I</button>
+        <button value="J">J</button>
     </div>
+    <div class="row">       
+        <button value="K">K</button>
+        <button value="L">L</button>
+        <button value="M">M</button>
+        <button value="N">N</button>
+        <button value="O">O</button>
+        <button value="P">P</button>
+        <button value="Q">Q</button>
+        <button value="R">R</button>
+        <button value="S">S</button>
+        <button value="T">T</button>
+    </div>
+    <div class="row">    
+        <button value="U">U</button>
+        <button value="V">V</button>
+        <button value="W">W</button>
+        <button value="X">X</button>
+        <button value="Y">Y</button>
+        <button value="Z">Z</button>
+    </div>
+  </div>
 
-    <div class="video-container">
-        <video autoplay muted loop id="background-video">
-            <source src="/images/background-video.mp4" type="video/mp4">
-            <source src="/image/background-video.webm" type="video/webm"
-        </video>
+    <!--Multiple images to display incorrect guesses-->
+    <div id="scoreDisplay">Incorrect Guesses: 0</div> 
+    <!--Clickable buttons to restart or set a new game-->
+    <div id="resetButton">
+        <button value="resetButton">RESET</button>
     </div>
+    <div id="newGameButton">
+        <button value="newGameButton">NEW GAME</button>
+    </div>   
+    
+    <!--Stored sneaker brands for the user to guess in the game -->
+    <div id="wordsList" data-words="Nike,Jordan,Adidas,Converse,Puma,Vans,New Balance,Reebok,Saucony,ASICS" style="display:none;"></div>
 </body>
-</html>
+</html> 

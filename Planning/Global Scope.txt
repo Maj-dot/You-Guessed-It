@@ -1,6 +1,5 @@
 //GLobal Variables: 
     //`wordToGuess` will hold the word player needs to guess
-    //`spaceMan` an array that will hold the guessed letter
     //`incorrectGuesses` keeps track of the number of incorrect guesses
     //`maxGuesses` is the maxium number of incorrect guesses allowed
     //`gameOver` a boolean variable stating if the game is over

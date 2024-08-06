@@ -1,6 +1,6 @@
 // 1) Define the required variables
 let wordToGuess;
-let spaceMan = []; // Guessed letters
+let sneaker = []; // Guessed letters 
 let incorrectGuesses = 0;
 let maxGuesses = 6; // Maximum incorrect guesses
 let gameOver = false;
@@ -10,11 +10,13 @@ const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButton = document.getElementById('keyBoardButton');
 const scoreDisplay = document.getElementById('scoreDisplay');
 const resetButton = document.getElementById('resetButton');
+const newGameButton = document.getElementById('newGameButton');
+const wordsList = document.getElementById('wordsList');
 
 // 3) Initialize the game
 function initializeGame() {
     wordToGuess = getRandomWord(); // Function to get a random word
-    spaceMan = [];
+    sneaker = [];
     incorrectGuesses = 0;
     gameOver = false;
     renderGameState();
@@ -24,15 +26,15 @@ function initializeGame() {
 function renderGameState() {
     // Display the word with blanks for unguessed letters
     // Update guessed letters and incorrect guesses
-    // Display the score and game over message if applicable
+    // Display the score and game over message 
 }
 
 // 5) Handle letter guesses
 function handleClick(event) {
     if (!gameOver) {
         let guessedLetter = event.target.value.toUpperCase();
-        if (!spaceMan.includes(guessedLetter)) {
-            spaceMan.push(guessedLetter);
+        if (!sneaker.includes(guessedLetter)) {
+            sneaker.push(guessedLetter);
             if (wordToGuess.includes(guessedLetter)) {
                 // Correct guess, update word display
             } else {
