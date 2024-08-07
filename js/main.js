@@ -26,6 +26,7 @@ keyBoardButtons.forEach(keyBoardButton => {
     keyBoardButton.addEventListener('click', handleGuess);
 });
 
+document.addEventListener('DOMContentLoaded', initGame);
 /*----- functions -----*/
 // A function to get a random word from the wordToGuess array
 function getRandomWord() {
@@ -34,8 +35,7 @@ function getRandomWord() {
 }
 
 function initGame() {
-   const randomWord = getRandomWord(); // Call function to get a random word
-   //console.log(randomWord);
+   currentWord = getRandomWord ();
    sneaker = []; 
    incorrectGuesses = 0;
    gameOver = false;
@@ -76,10 +76,37 @@ function renderIncorrectGuesses() {
     incorrectGuessesDisplay.textContent = `Incorrect Guesses: ${incorrectGuesses}`;
 };
 
+//Show the current score
 function renderScore() {
     scoreDisplay.textContent =`Score: ${score}`;
 };
 
+//handle letter guesses and update the game state
+function handleGuess(event) {
+    if(gameOver) return;
+    let guessedLetter = event.target.value.toUpperCase();
+    if (!sneaker.includes(guessedLetter)) {
+        sneaker.push(guessedLetter);
+        if(currentWord.includes(guessedLetter)) {
+            if (currentWord.split('').every(letter => sneaker.includes(letter))) {
+                score++;
+                gameOver = true;
+                alert('You guessed the word! Starting a new game.');
+                initGame();
+            }
+        } else {
+            incorrectGuesses++;
+            if (incorrectGuesses >= maxGuesses) {
+                gameOver = true; 
+                alert(`Game Over! The word was ${curretWord}. New game starting.`);
+                initGame();
+            }
+        }
+    }
+    updateDisplay();
+}
+
+//Update the keyboard based on guesses 
 function renderkeyBoardButtons() {
     keyBoardButtons.forEach(button => {
         let letter = button.ariaValueMax.toUpperCase();
