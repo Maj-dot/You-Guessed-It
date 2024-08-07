@@ -55,13 +55,37 @@ function updateDisplay () {
     renderWordDisplay();
     renderIncorrectGuesses();
     renderScore();
-    renderkeyboardButtons();
+    renderkeyBoardButtons();
 };
 
-function renderWordDisplay() {}
+//Display the blanks for unguessed letters in the word to guess
+function renderWordDisplay() {
+    let displayWord = '';
+    for (let letter of currentWord) {
+        if (sneaker.includes(letter)) {
+            displayWord += letter + '';
+        } else {
+            displayWord += '_ ';
+        }
+    }
+    wordDisplayArea.textContent = displayWord.trim();
+};
 
-function renderIncorrectGuesses() {}
+//Display number of incorrect guesses made 
+function renderIncorrectGuesses() {
+    incorrectGuessesDisplay.textContent = `Incorrect Guesses: ${incorrectGuesses}`;
+};
 
-function renderScore() {}
+function renderScore() {
+    scoreDisplay.textContent =`Score: ${score}`;
+};
 
-function keyBoardButtons() {}
+function renderkeyBoardButtons() {
+    keyBoardButtons.forEach(button => {
+        let letter = button.ariaValueMax.toUpperCase();
+        if (sneaker.includes(letter)) {
+        } else {
+            button.disabled = false;
+        }
+    });
+}
