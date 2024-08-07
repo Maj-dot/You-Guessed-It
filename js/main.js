@@ -40,12 +40,17 @@ function initGame() {
    updateDisplay();
 };
 
+function startNewGame() {
+    score = 0;
+    resetGame();
+}
+
 function resetGame() {
     guessedLetters = [];
     incorrectGuesses = 0;
     gameOver = false;
     messageDisplay.textContent = '';
-    updateDisplay();
+    initGame();
 };
 
 function updateDisplay () {
@@ -89,7 +94,7 @@ function handleGuess(event) {
                 score++;
                 gameOver = true;
                 messageDisplay.textContent = "Let's Goooo! You Won! Level Up!";
-                setTimeout(initGame, 2000);
+                setTimeout(newWord, 2000);
             }
         } else {
             incorrectGuesses++;
@@ -103,11 +108,21 @@ function handleGuess(event) {
     updateDisplay();
 }
 
+function newWord() {
+    currentWord = getRandomWord();
+    guessedLetters = [];
+    incorrectGuesses = 0;
+    gameOver = false;
+    messageDisplay.textContent = '';
+    updateDisplay();
+}
+
 //Update the keyboard based on guesses 
 function renderkeyBoardButtons() {
     keyBoardButtons.forEach(button => {
         let letter = button.value.toUpperCase();
         if (guessedLetters.includes(letter)) {
+            button.disabled = true; 
         } else {
             button.disabled = false;
         }
