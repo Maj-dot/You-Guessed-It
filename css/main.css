@@ -1,19 +1,2 @@
-body {
-    background-image: url('/images/background-image.webp');
-    background-size: cover;
-    background-position: center;
-};
-
-h1 {
-    color:firebrick;
-    font-size: 4em;
-    text-align: center;
-    text-shadow: 
-        1px 1px 0 #000,
-        2px 2px 0 #000,
-        3px 3px 0 #000,
-        4px 4px 0 #000,
-        5px 5px 0 #000;
-};
 
 

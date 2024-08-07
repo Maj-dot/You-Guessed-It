@@ -49,6 +49,7 @@ function resetGame() {
     guessedLetters = [];
     incorrectGuesses = 0;
     gameOver = false;
+    score: '';
     messageDisplay.textContent = '';
     initGame();
 };
