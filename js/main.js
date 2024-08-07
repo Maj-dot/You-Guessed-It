@@ -2,52 +2,49 @@
 const maxGuesses = 6; // Maxium number of incorrect guesses
  
 /*----- state variables -----*/
-let wordToGuess = ["Nike", "Jordan", "Adidas", "Converse", "Puma", "Vans", "New Balance", "Reebok", "Saucony", "ASICS"];
+let wordsToGuess = ["Nike", "Jordan", "Adidas", "Converse", "Puma", "Vans", "New Balance", "Reebok", "Saucony", "ASICS"];
 let currentWord = '';
-let sneaker = []; //Guessed Letters
+let guessedLetters = []; //Guessed Letters
 let incorrectGuesses = 0;
 let gameOver = false;
 let score = 0;
 
 /*----- cached elements  -----*/
 const wordDisplayArea = document.getElementById('wordDisplayArea');
-const keyBoardButtons = document.querySelectorAll('.row');
+const keyBoardButtons = document.querySelectorAll('.row button');
 const scoreDisplay =  document.getElementById('scoreDisplay');
 const incorrectGuessesDisplay = document.getElementById('incorrectGuessesDisplay')
 const resetButton = document.getElementById('resetButton');
 const newGameButton = document.getElementById('newGameButton');
-
+const messageDisplay = document.getElementById('messageDisplay');
 /*----- event listeners -----*/
 resetButton.addEventListener('click', resetGame);
-
 newGameButton.addEventListener('click', initGame);
-
-keyBoardButtons.forEach(keyBoardButton => {
-    keyBoardButton.addEventListener('click', handleGuess);
+keyBoardButtons.forEach(button => {
+    button.addEventListener('click', handleGuess);
 });
-
 document.addEventListener('DOMContentLoaded', initGame);
 /*----- functions -----*/
 // A function to get a random word from the wordToGuess array
 function getRandomWord() {
-    const randomIndex = Math.floor(Math.random() * wordToGuess.length);
-    return wordToGuess[randomIndex].toUpperCase();
+    const randomIndex = Math.floor(Math.random() * wordsToGuess.length);
+    return wordsToGuess[randomIndex].toUpperCase();
 }
 
 function initGame() {
-   currentWord = getRandomWord ();
-   sneaker = []; 
+   currentWord = getRandomWord();
+   guessedLetters = []; 
    incorrectGuesses = 0;
    gameOver = false;
-   score = 0;
+   messageDisplay.textContent = '';
    updateDisplay();
 };
 
 function resetGame() {
-    sneaker = [];
+    guessedLetters = [];
     incorrectGuesses = 0;
     gameOver = false;
-    score = 0;
+    messageDisplay.textContent = '';
     updateDisplay();
 };
 
@@ -62,7 +59,7 @@ function updateDisplay () {
 function renderWordDisplay() {
     let displayWord = '';
     for (let letter of currentWord) {
-        if (sneaker.includes(letter)) {
+        if (guessedLetters.includes(letter)) {
             displayWord += letter + '';
         } else {
             displayWord += '_ ';
@@ -85,21 +82,21 @@ function renderScore() {
 function handleGuess(event) {
     if(gameOver) return;
     let guessedLetter = event.target.value.toUpperCase();
-    if (!sneaker.includes(guessedLetter)) {
-        sneaker.push(guessedLetter);
+    if (!guessedLetters.includes(guessedLetter)) {
+        guessedLetters.push(guessedLetter);
         if(currentWord.includes(guessedLetter)) {
-            if (currentWord.split('').every(letter => sneaker.includes(letter))) {
+            if (currentWord.split('').every(letter => guessedLetters.includes(letter))) {
                 score++;
                 gameOver = true;
-                alert('You guessed the word! Starting a new game.');
-                initGame();
+                messageDisplay.textContent = "Let's Goooo! You Won! Level Up!";
+                setTimeout(initGame, 2000);
             }
         } else {
             incorrectGuesses++;
             if (incorrectGuesses >= maxGuesses) {
                 gameOver = true; 
-                alert(`Game Over! The word was ${curretWord}. New game starting.`);
-                initGame();
+                messageDisplay.textContent = `Womp Womp! Sorry The Correct Word Was ${currentWord}. Starting A Game!`;
+                setTimeout(initGame, 2000);
             }
         }
     }
@@ -109,8 +106,8 @@ function handleGuess(event) {
 //Update the keyboard based on guesses 
 function renderkeyBoardButtons() {
     keyBoardButtons.forEach(button => {
-        let letter = button.ariaValueMax.toUpperCase();
-        if (sneaker.includes(letter)) {
+        let letter = button.value.toUpperCase();
+        if (guessedLetters.includes(letter)) {
         } else {
             button.disabled = false;
         }

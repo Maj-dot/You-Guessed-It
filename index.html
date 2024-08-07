@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
 </head>
-<body>
-   <div id="gameContainer">   
+<body>  
     <h1>JUST GUESS IT!</h1>
     <div id="wordDisplayArea">_ _ _ _ _</div>
+    <div id="incorrectGuessesDisplay"></div>
+    <div id="scoreDisplay">Incorrect Guesses: 0</div> 
+    <div id="wordsList" data-words="Nike,Jordan,Adidas,Converse,Puma,Vans,New Balance,Reebok,Saucony,ASICS" style="display:none;"></div>
+    <div id="messageDisplay"></div>
     <!--Buttons for each letter of the alphabet-->
-    <div id="keyboardButtons">
     <div class="row">   
         <button value="A">A</button>
         <button value="B">B</button>
@@ -46,17 +48,11 @@
         <button value="Z">Z</button>
     </div>
   </div>
-
-    <!--display incorrect guesses-->
-    <div id="scoreDisplay">Incorrect Guesses: 0</div> 
-    <!--Clickable buttons to restart or set a new game-->
-    <div id="resetButton">
+     <div id="resetButton">
         <button value="resetButton">RESET</button>
     </div>
     <div id="newGameButton">
         <button value="newGameButton">NEW GAME</button>
     </div>   
-    <!--Stored sneaker brands for the user to guess in the game -->
-    <div id="wordsList" data-words="Nike,Jordan,Adidas,Converse,Puma,Vans,New Balance,Reebok,Saucony,ASICS" style="display:none;"></div>
 </body>
 </html> 
