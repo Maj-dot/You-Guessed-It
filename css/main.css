@@ -1,3 +1,27 @@
+h1 {
+    color: firebrick;
+    text-align: center;
+}
+
+body {
+    background-color: ;
+}
+
+#wordDisplayArea {
+    color: firebrick;
+}
+
+button {
+    color: firebrick
+}
+
+.board {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: firebrick;
+}
+
 /* Instructional box */
 .modal {
     display: none; /* Hidden by default */
