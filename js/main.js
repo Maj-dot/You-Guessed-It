@@ -8,6 +8,8 @@ let guessedLetters = []; //Guessed Letters
 let incorrectGuesses = 0;
 let gameOver = false;
 let score = 0;
+let wordIndex = 0;
+let shuffledWords = shuffledWords([...wordsToGuess]);
 
 /*----- cached elements  -----*/
 const wordDisplayArea = document.getElementById('wordDisplayArea');
@@ -23,6 +25,14 @@ keyBoardButtons.forEach(button => {
 });
 document.addEventListener('DOMContentLoaded', initGame);
 /*----- functions -----*/
+function shuffleWords(words) {
+    for (let i = words.length - 1; i > 0; i--){
+        const j = math.floor(Math.random() * (i + 1));
+        [words[i], words[j]] = [words[j], words[i]];
+    }
+    return words;
+}
+
 
 function getRandomWord() {
     const randomIndex = Math.floor(Math.random() * wordsToGuess.length);
