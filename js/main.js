@@ -8,6 +8,7 @@ let guessedLetters = []; //Guessed Letters
 let incorrectGuesses = 0;
 let gameOver = false;
 let score = 0;
+let wordGenerated = true;
 
 /*----- cached elements  -----*/
 const wordDisplayArea = document.getElementById('wordDisplayArea');
@@ -107,17 +108,19 @@ function handleGuess(event) {
         }
     }
     updateDisplay();
-}
+};
 
 function newWord() {
+    if (!wordGenerated) {
     currentWord = getRandomWord();
     guessedLetters = [];
     incorrectGuesses = 0;
     gameOver = false;
     messageDisplay.textContent = '';
+    wordGenerated = true;
     updateDisplay();
-}
-
+    }
+};
 //Update the keyboard based on guesses 
 function renderkeyBoardButtons() {
     keyBoardButtons.forEach(button => {
@@ -128,4 +131,4 @@ function renderkeyBoardButtons() {
             button.disabled = false;
         }
     });
-}
+};
