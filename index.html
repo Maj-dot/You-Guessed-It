@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,66 +8,71 @@
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
 </head>
+
 <body>
     <div id="instructionModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2>Welcome to Just Guess It!</h2>
-            <p>Objective: Our space-woman "Nola" is trapped on the planet Earth! Let's help her get to her sneakership so she can phone home!</p>
+            <p>Objective: Our space-woman "Nola" is trapped on the planet Earth! Let's help her get to her sneakership
+                so she can phone home!</p>
             <p>Guess the correct sneaker brand before running out of attempts.</p>
             <ul>HOW TO PLAY:
                 <li>Click on a letter from the onscreen keyboard to make a guess.</li>
                 <li>If your guess is in the word, it will appear in the display and Nola will start to appear!</li>
                 <li>If your guess is not in the word, it will count as an incorrect guess.</li>
-                <li>If you make 6 incorrect guesses, the game is over!</li>    
-             </ul>
+                <li>If you make 6 incorrect guesses, the game is over!</li>
+            </ul>
             <button id="playNowButton">Play Now</button>
-        </div>     
-    </div> 
-     
+        </div>
+    </div>
+
     <h1>JUST GUESS IT!🚀</h1>
     <div class="board">
         <div>Score:</div>
         <div>Incorrect Guesses:</div>
     </div>
     <div id="wordDisplayArea">_ _ _ _ _</div>
-    <div id="wordsList" data-words="Nike,Jordan,Adidas,Converse,Puma,Vans,Yeezys,NewBalance,Saucony,ASICS" style="display:none;"></div>
+    <div id="wordsList" data-words="Nike,Jordan,Adidas,Converse,Puma,Vans,Yeezys,NewBalance,Saucony,ASICS"
+        style="display:none;"></div>
     <div id="messageDisplay"></div>
     <div id="newGameButton">
         <button value="newGameButton">NEW GAME</button>
     </div>
-    <div class="row">   
-        <button value="A">A</button>
-        <button value="B">B</button>
-        <button value="C">C</button>
-        <button value="D">D</button>
-        <button value="E">E</button>
-        <button value="F">F</button>
-        <button value="G">G</button>
-        <button value="H">H</button>
-        <button value="I">I</button>
-        <button value="J">J</button>
+    <div id="keyboard">
+        <div class="row">
+            <button value="A">A</button>
+            <button value="B">B</button>
+            <button value="C">C</button>
+            <button value="D">D</button>
+            <button value="E">E</button>
+            <button value="F">F</button>
+            <button value="G">G</button>
+            <button value="H">H</button>
+            <button value="I">I</button>
+            <button value="J">J</button>
+        </div>
+        <div class="row">
+            <button value="K">K</button>
+            <button value="L">L</button>
+            <button value="M">M</button>
+            <button value="N">N</button>
+            <button value="O">O</button>
+            <button value="P">P</button>
+            <button value="Q">Q</button>
+            <button value="R">R</button>
+            <button value="S">S</button>
+            <button value="T">T</button>
+        </div>
+        <div class="row">
+            <button value="U">U</button>
+            <button value="V">V</button>
+            <button value="W">W</button>
+            <button value="X">X</button>
+            <button value="Y">Y</button>
+            <button value="Z">Z</button>
+        </div>
     </div>
-    <div class="row">       
-        <button value="K">K</button>
-        <button value="L">L</button>
-        <button value="M">M</button>
-        <button value="N">N</button>
-        <button value="O">O</button>
-        <button value="P">P</button>
-        <button value="Q">Q</button>
-        <button value="R">R</button>
-        <button value="S">S</button>
-        <button value="T">T</button>
-    </div>
-    <div class="row">    
-        <button value="U">U</button>
-        <button value="V">V</button>
-        <button value="W">W</button>
-        <button value="X">X</button>
-        <button value="Y">Y</button>
-        <button value="Z">Z</button>
-    </div>
-    
 </body>
-</html> 
+
+</html>

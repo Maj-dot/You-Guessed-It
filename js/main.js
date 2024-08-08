@@ -1,6 +1,6 @@
 /*----- constants -----*/
-const maxGuesses = 6; 
- 
+const maxGuesses = 6;
+
 /*----- state variables -----*/
 let wordsToGuess = ["Nike", "Jordan", "Adidas", "Converse", "Puma", "Vans", "Yeezys", "NewBalance", "Saucony", "ASICS"];
 let currentWord = '';
@@ -14,7 +14,7 @@ let shuffledWords = shuffleWords([...wordsToGuess]);
 const playNowButton = document.getElementById('playNowButton');
 const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row button');
-const scoreDisplay =  document.getElementById('scoreDisplay');
+const scoreDisplay = document.getElementById('scoreDisplay');
 const incorrectGuessesDisplay = document.getElementById('incorrectGuessesDisplay')
 const newGameButton = document.getElementById('newGameButton');
 const messageDisplay = document.getElementById('messageDisplay');
@@ -39,7 +39,7 @@ function closeInstructions() {
 }
 
 function shuffleWords(words) {
-    for (let i = words.length - 1; i > 0; i--){
+    for (let i = words.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [words[i], words[j]] = [words[j], words[i]];
     }
@@ -55,13 +55,13 @@ function getRandomWord() {
 }
 
 function initGame() {
-   currentWord = getRandomWord();
-   guessedLetters = []; 
-   incorrectGuesses = 0;
-   gameOver = false;
-   messageDisplay.textContent = '';
-   updateDisplay();
-   closeInstructions();
+    currentWord = getRandomWord();
+    guessedLetters = [];
+    incorrectGuesses = 0;
+    gameOver = false;
+    messageDisplay.textContent = '';
+    updateDisplay();
+    closeInstructions();
 };
 
 function startNewGame() {
@@ -69,7 +69,7 @@ function startNewGame() {
     initGame();
 };
 
-function updateDisplay () {
+function updateDisplay() {
     renderWordDisplay();
     renderIncorrectGuesses();
     renderScore();
@@ -87,21 +87,21 @@ function renderWordDisplay() {
     }
     wordDisplayArea.textContent = displayWord.trim();
 };
- 
+
 function renderIncorrectGuesses() {
     incorrectGuessesDisplay.textContent = `Incorrect Guesses: ${incorrectGuesses}`;
 };
 
 function renderScore() {
-    scoreDisplay.textContent =`Score: ${score}`;
+    scoreDisplay.textContent = `Score: ${score}`;
 };
 
 function handleGuess(event) {
-    if(gameOver) return;
+    if (gameOver) return;
     let guessedLetter = event.target.value.toUpperCase();
     if (!guessedLetters.includes(guessedLetter)) {
         guessedLetters.push(guessedLetter);
-        if(currentWord.includes(guessedLetter)) {
+        if (currentWord.includes(guessedLetter)) {
             if (currentWord.split('').every(letter => guessedLetters.includes(letter))) {
                 score++;
                 gameOver = false;
@@ -111,7 +111,7 @@ function handleGuess(event) {
         } else {
             incorrectGuesses++;
             if (incorrectGuesses >= maxGuesses) {
-                gameOver = true; 
+                gameOver = true;
                 messageDisplay.textContent = `Womp Womp!🥴 Sorry The Correct Word Was ${currentWord}. Start A Game!`;
                 setTimeout(initGame, 4000);
             }
@@ -133,7 +133,7 @@ function renderkeyBoardButtons() {
     keyBoardButtons.forEach(button => {
         let letter = button.value.toUpperCase();
         if (guessedLetters.includes(letter)) {
-            button.disabled = true; 
+            button.disabled = true;
         } else {
             button.disabled = false;
         }
