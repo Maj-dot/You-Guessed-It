@@ -11,7 +11,6 @@ let score = 0;
 let wordIndex = 0;
 let shuffledWords = shuffleWords([...wordsToGuess]);
 /*----- cached elements  -----*/
-const instructionBox = document.getElementById('instructionBox');
 const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row button');
 const scoreDisplay = document.getElementById('scoreDisplay');
@@ -20,9 +19,10 @@ const newGameButton = document.getElementById('newGameButton');
 const messageDisplay = document.getElementById('messageDisplay');
 const instructionModal = document.getElementById('instructionModal');
 const closeButton = document.querySelector('.close-button');
+const playNowButton = document.getElementById('playNowButton');
 /*----- event listeners -----*/
-if (instructionBox) instructionBox.addEventListener('click', initGame);
-if (closeButton) closeButton.addEventListener('click', closeInstructions);
+if (playNowButton) playNowButton.addEventListener('click', startGame);
+if (closeButton) closeButton.addEventListener('click', startGame);
 if (newGameButton) newGameButton.addEventListener('click', startNewGame);
 keyBoardButtons.forEach(button => {
     button.addEventListener('click', handleGuess);
@@ -36,6 +36,16 @@ function showInstructions() {
 
 function closeInstructions() {
     instructionModal.style.display = 'none';
+}
+
+function startNewGame() {
+    score = 0;
+    initGame();
+};
+
+function startGame() {
+    closeInstructions();
+    initGame();
 }
 
 function shuffleWords(words) {
@@ -61,12 +71,6 @@ function initGame() {
     gameOver = false;
     messageDisplay.textContent = '';
     updateDisplay();
-    closeInstructions();
-};
-
-function startNewGame() {
-    score = 0;
-    initGame();
 };
 
 function updateDisplay() {
@@ -89,11 +93,11 @@ function renderWordDisplay() {
 };
 
 function renderIncorrectGuesses() {
-    incorrectGuessesDisplay.textContent = `Incorrect Guesses: ${incorrectGuesses}`;
+    incorrectGuessesDisplay.innerText = incorrectGuesses;
 };
 
 function renderScore() {
-    scoreDisplay.textContent = `Score: ${score}`;
+    scoreDisplay.innerText = score;
 };
 
 function handleGuess(event) {
@@ -131,11 +135,7 @@ function newWord() {
 
 function renderkeyBoardButtons() {
     keyBoardButtons.forEach(button => {
-        let letter = button.value.toUpperCase();
-        if (guessedLetters.includes(letter)) {
-            button.disabled = true;
-        } else {
-            button.disabled = false;
-        }
+        let letter = button.value.toUperCase();
+        button.disabled = guessedLetters.includes(letter);
     });
 };
