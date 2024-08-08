@@ -8,7 +8,7 @@ let guessedLetters = []; //Guessed Letters
 let incorrectGuesses = 0;
 let gameOver = false;
 let score = 0;
-let wordGenerated = true;
+
 /*----- cached elements  -----*/
 const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row button');
@@ -35,7 +35,6 @@ function initGame() {
    incorrectGuesses = 0;
    score = '';
    gameOver = false;
-   wordGenerated = true;
    messageDisplay.textContent = '';
    updateDisplay();
 };
@@ -80,14 +79,14 @@ function handleGuess(event) {
             if (currentWord.split('').every(letter => guessedLetters.includes(letter))) {
                 score++;
                 gameOver = false;
-                messageDisplay.textContent = "Let's Goooo! Level Up!";
+                messageDisplay.textContent = "Let's Goooo! Level Up!🚀";
                 setTimeout(newWord, 4000);
             }
         } else {
             incorrectGuesses++;
             if (incorrectGuesses >= maxGuesses) {
                 gameOver = true; 
-                messageDisplay.textContent = `Womp Womp! Sorry The Correct Word Was ${currentWord}. Start A Game!`;
+                messageDisplay.textContent = `Womp Womp!🥴 Sorry The Correct Word Was ${currentWord}. Start A Game!`;
                 setTimeout(initGame, 4000);
             }
         }
@@ -101,7 +100,6 @@ function newWord() {
     incorrectGuesses = 0;
     gameOver = false;
     messageDisplay.textContent = '';
-    wordGenerated = true;
     updateDisplay();
 };
 
