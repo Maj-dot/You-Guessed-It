@@ -64,7 +64,6 @@ function initGame() {
    closeInstructions();
 };
 
-
 function startNewGame() {
     score = 0;
     initGame();
@@ -129,7 +128,6 @@ function newWord() {
     messageDisplay.textContent = '';
     updateDisplay();
 };
-
 
 function renderkeyBoardButtons() {
     keyBoardButtons.forEach(button => {
