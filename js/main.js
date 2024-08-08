@@ -2,7 +2,7 @@
 const maxGuesses = 6; 
  
 /*----- state variables -----*/
-let wordsToGuess = ["Nike", "Jordan", "Adidas", "Converse", "Puma", "Vans", "NewBalance", "Reebok", "Saucony", "ASICS"];
+let wordsToGuess = ["Nike", "Jordan", "Adidas", "Converse", "Puma", "Vans", "Yeezys", "NewBalance", "Saucony", "ASICS"];
 let currentWord = '';
 let guessedLetters = []; //Guessed Letters
 let incorrectGuesses = 0;
@@ -18,23 +18,33 @@ const scoreDisplay =  document.getElementById('scoreDisplay');
 const incorrectGuessesDisplay = document.getElementById('incorrectGuessesDisplay')
 const newGameButton = document.getElementById('newGameButton');
 const messageDisplay = document.getElementById('messageDisplay');
-
+const instructionModal = document.getElementById('instructionModal');
+const closeButton = document.querySelector('.close-button');
 /*----- event listeners -----*/
 if (playNowButton) playNowButton.addEventListener('click', initGame);
+if (closeButton) closeButton.addEventListener('click', closeInstructions);
 if (newGameButton) newGameButton.addEventListener('click', startNewGame);
 keyBoardButtons.forEach(button => {
     button.addEventListener('click', handleGuess);
 });
-document.addEventListener('DOMContentLoaded', initGame);
+document.addEventListener('DOMContentLoaded', showInstructions);
 
 /*----- functions -----*/
+function showInstructions() {
+    instructionModal.style.display = 'block';
+};
+
+function closeInstructions() {
+    instructionModal.style.display = 'none';
+}
+
 function shuffleWords(words) {
     for (let i = words.length - 1; i > 0; i--){
-        const j = math.floor(Math.random() * (i + 1));
+        const j = Math.floor(Math.random() * (i + 1));
         [words[i], words[j]] = [words[j], words[i]];
     }
     return words;
-}
+};
 
 function getRandomWord() {
     if (wordIndex >= shuffledWords.length) {
@@ -51,6 +61,7 @@ function initGame() {
    gameOver = false;
    messageDisplay.textContent = '';
    updateDisplay();
+   closeInstructions();
 };
 
 
