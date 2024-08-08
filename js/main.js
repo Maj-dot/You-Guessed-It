@@ -10,8 +10,8 @@ let gameOver = false;
 let score = 0;
 let wordIndex = 0;
 let shuffledWords = shuffledWords([...wordsToGuess]);
-
 /*----- cached elements  -----*/
+const playNowButton = document.getElementById('playNowButton');
 const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row button');
 const scoreDisplay =  document.getElementById('scoreDisplay');
@@ -19,6 +19,7 @@ const incorrectGuessesDisplay = document.getElementById('incorrectGuessesDisplay
 const newGameButton = document.getElementById('newGameButton');
 const messageDisplay = document.getElementById('messageDisplay');
 /*----- event listeners -----*/
+playNowButton.addEventListener('click', initGame);
 newGameButton.addEventListener('click', initGame);
 keyBoardButtons.forEach(button => {
     button.addEventListener('click', handleGuess);
@@ -49,6 +50,7 @@ function initGame() {
    messageDisplay.textContent = '';
    updateDisplay();
 };
+
 
 function startNewGame() {
     score = 0;
