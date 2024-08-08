@@ -1,9 +1,11 @@
 // 1) Define the required variables
-let wordToGuess;
-let sneaker = []; // Guessed letters 
+let wordToGuess = [];
+let guessedLetters = []; 
 let incorrectGuesses = 0;
-let maxGuesses = 6; // Maximum incorrect guesses
+let maxGuesses = 6; 
 let gameOver = false;
+let wordGenerated = false; 
+let score = 0;
 
 // 2) Cache DOM elements
 const wordDisplayArea = document.getElementById('wordDisplayArea');
@@ -17,7 +19,7 @@ const wordsList = document.getElementById('wordsList');
 // 3) Initialize the game
 function initGame() {
     wordToGuess = getRandomWord(); // Function to get a random word
-    sneaker = [];
+    guessedLetters = [];
     incorrectGuesses = 0;
     gameOver = false;
     renderGameState();
