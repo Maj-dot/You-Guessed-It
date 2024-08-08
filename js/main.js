@@ -33,23 +33,25 @@ function shuffleWords(words) {
     return words;
 }
 
-
 function getRandomWord() {
-    const randomIndex = Math.floor(Math.random() * wordsToGuess.length);
-    return wordsToGuess[randomIndex].toUpperCase();
+    if (wordIndex >= shuffledWords.length) {
+        wordIndex = 0;
+        shuffledWords = shuffleWords([...wordsToGuess]);
+    }
+    return shuffledWords[wordIndex++].toUpperCase();
 }
 
 function initGame() {
    currentWord = getRandomWord();
    guessedLetters = []; 
    incorrectGuesses = 0;
-   score = '';
    gameOver = false;
    messageDisplay.textContent = '';
    updateDisplay();
 };
 
 function startNewGame() {
+    score = 0;
     initGame();
 };
 
