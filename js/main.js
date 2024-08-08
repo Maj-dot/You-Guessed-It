@@ -67,11 +67,9 @@ function renderIncorrectGuesses() {
     incorrectGuessesDisplay.textContent = `Incorrect Guesses: ${incorrectGuesses}`;
 };
 
-
 function renderScore() {
     scoreDisplay.textContent =`Score: ${score}`;
 };
-
 
 function handleGuess(event) {
     if(gameOver) return;
