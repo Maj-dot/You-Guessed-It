@@ -11,7 +11,7 @@ let score = 0;
 let wordIndex = 0;
 let shuffledWords = shuffleWords([...wordsToGuess]);
 /*----- cached elements  -----*/
-const playNowButton = document.getElementById('playNowButton');
+const instructionBox = document.getElementById('instructionBox');
 const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row button');
 const scoreDisplay = document.getElementById('scoreDisplay');
@@ -21,7 +21,7 @@ const messageDisplay = document.getElementById('messageDisplay');
 const instructionModal = document.getElementById('instructionModal');
 const closeButton = document.querySelector('.close-button');
 /*----- event listeners -----*/
-if (playNowButton) playNowButton.addEventListener('click', initGame);
+if (instructionBox) instructionBox.addEventListener('click', initGame);
 if (closeButton) closeButton.addEventListener('click', closeInstructions);
 if (newGameButton) newGameButton.addEventListener('click', startNewGame);
 keyBoardButtons.forEach(button => {
