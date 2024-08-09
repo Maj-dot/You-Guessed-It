@@ -36,7 +36,7 @@ The game ends when you either guess the word correctly or make six incorrect gue
 
 To play the game:
 
-1. Click the link here * <https://github.com/Maj-dot/You-Guessed-It.git>
+1. Click the link here * <https://maj-dot.github.io/You-Guessed-It/>
 3. Enjoy the game!
 
 ## Future Improvements 
