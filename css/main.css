@@ -1,114 +1,121 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: auto; /* Allow height to be determined by content */
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(to bottom, #000428, #004e92);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 600px; /* Maximum width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 h1 {
     color: #FF4500;
-    text-align: center;
     font-size: 3em;
     text-shadow: 2px 2px 5px #000;
 }
 
+#wordDisplayArea {
+    color: #FF4500;
+    font-size: 2em;
+    text-align: center;
+    margin: 10px 0;
+    letter-spacing: 5px;
+}
 
-body {
-    background: linear-gradient(to bottom, #000428, #004e92);
-    /* Gradient for a space theme */
-    color: white;
-    /* Ensuring all text is readable */
-    font-family: 'Roboto', sans-serif;
-    /* Use a clean, modern font */
+#messageDisplay {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px 0;
+    width: 100%;
+}
+
+#keyboard .row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 button {
     background-color: #333;
     border: none;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
+    padding: 10px;
+    font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
+    flex: 1;
+    margin: 2px;
 }
 
 button:hover {
     background-color: #FF4500;
-    /* Change color on hover */
-    color: white;
-    transform: scale(1.1);
-    /* Slightly increase the size */
+    transform: scale(1.05);
 }
 
 button:active {
-    transform: scale(0.9);
-    /* Shrink the button slightly on click */
+    transform: scale(0.95);
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 
+#win-images-container img, #lossImageContainer img {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
 
-#wordDisplayArea {
-    color: #FF4500;
-    font-size: 2em;
+#win-images-container, #lossImageContainer {
+    width: 100%;
     text-align: center;
-    margin: 20px 0;
-    letter-spacing: 5px;
 }
-
-#messageDisplay {
-    font-size: 1.5em;
-    text-align: center;
-    margin-top: 20px;
-    animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.board {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px;
-}
-
-#keyboard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px;
-}
-
-
-
-button.clicked {
-    background-color: grey;
-    color: white;
-    border: 2px solid darkgrey;
-    cursor: not-allowed;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-
 
 .modal {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.7);
-    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -122,9 +129,9 @@ button.clicked {
 
 .close-button {
     color: #FF4500;
-    float: right;
     font-size: 30px;
     font-weight: bold;
+    float: right;
 }
 
 .close-button:hover,
@@ -134,3 +141,21 @@ button.clicked {
     cursor: pointer;
 }
 
+@media (max-width: 600px) {
+    .game-container {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #wordDisplayArea {
+        font-size: 1.5em;
+    }
+}
