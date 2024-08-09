@@ -10,6 +10,19 @@ let gameOver = false;
 let score = 0;
 let wordIndex = 0;
 let shuffledWords = shuffleWords([...wordsToGuess]);
+let currentImageIndex = 0;
+const imagePaths = [
+    './images/img1.webp',
+    './images/img2.webp',
+    './images/img3.webp',
+    './images/img4.webp',
+    './images/img5.webp',
+    './images/img6.webp',
+    './images/img7.webp',
+    './images/img8.webp',
+    './images/img9.webp',
+    './images/youWin.webp',
+]; 
 /*----- cached elements  -----*/
 const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row button');
@@ -20,6 +33,7 @@ const messageDisplay = document.getElementById('messageDisplay');
 const instructionModal = document.getElementById('instructionModal');
 const closeButton = document.querySelector('.close-button');
 const playNowButton = document.getElementById('playNowButton');
+const winImage = document.getElementById('win-image');
 /*----- event listeners -----*/
 if (playNowButton) playNowButton.addEventListener('click', startGame);
 if (closeButton) closeButton.addEventListener('click', startGame);
@@ -27,7 +41,9 @@ if (newGameButton) newGameButton.addEventListener('click', startNewGame);
 keyBoardButtons.forEach(button => {
     button.addEventListener('click', handleGuess);
 });
-document.addEventListener('DOMContentLoaded', showInstructions);
+document.addEventListener('DOMContentLoaded', function() {
+    showInstructions();
+});
 
 /*----- functions -----*/
 function showInstructions() {
@@ -111,6 +127,7 @@ function handleGuess(event) {
                 gameOver = false;
                 messageDisplay.textContent = "Let's Goooo! Level Up!🚀";
                 setTimeout(newWord, 4000);
+                displayNextWinImage();
             }
         } else {
             incorrectGuesses++;
@@ -125,10 +142,35 @@ function handleGuess(event) {
     updateDisplay();
 };
 
+
+function displayNextWinImage() {
+    const winImage = document.getElementById('win-image');
+    
+    if (currentImageIndex < imagePaths.length) {
+        winImage.src = imagePaths[currentImageIndex];
+        winImage.style.display = 'block';
+        currentImageIndex++;
+    } else {
+        currentImageIndex = 0;
+        winImage.src = imagePaths[currentImageIndex];
+        winImage.style.display = 'block';
+    }
+}
+
 function showLossImage() {
     const lossImageContainer = document.getElementById('lossImageContainer');
     const lossImage = document.getElementById('lossImage');
-    lossImage.src = '~/code/ga/Projects/YOU-GUESSED-IT/images/youLost.webp'
+
+    if (lossImage) {
+        lossImage.src = './images/youLost.webp';
+        lossImageContainer.style.display = 'block';
+        setTimeout(() => {
+            lossImageContainer.style.display = 'none';
+            initGame();
+        }, 4000);
+    } else {
+        console.error('Image element with id "lossImage" not found.')
+    }
 }
 
 function newWord() {
