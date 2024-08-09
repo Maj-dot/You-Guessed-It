@@ -13,7 +13,7 @@ The game ends when you either guess the word correctly or make six incorrect gue
 ## Features
 
 - **Word Guessing**: Guess letters to reveal the sneaker brand.
-- **Scoring**: Tracks your score as you correctly guess words.
+- **Scoring**: Tracks your score as you correctly guess words.  
 - **Levels**: Progress through different levels by guessing multiple words.
 - **Visual Feedback**: Images change based on your progress in the game.
 - **Win/Loss Messages**: Special messages display when you win or lose.
