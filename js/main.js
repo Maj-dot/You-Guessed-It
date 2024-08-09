@@ -22,7 +22,7 @@ const imagePaths = [
     './images/img8.webp',
     './images/img9.webp',
     './images/youWin.webp',
-]; 
+];
 /*----- cached elements  -----*/
 const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row button');
@@ -41,7 +41,7 @@ if (newGameButton) newGameButton.addEventListener('click', startNewGame);
 keyBoardButtons.forEach(button => {
     button.addEventListener('click', handleGuess);
 });
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     showInstructions();
 });
 
@@ -157,14 +157,14 @@ function displayFinalWinImage() {
         winImage.src = './images/youWin.webp';
         winImageContainer.style.display = 'block';
         winImage.style.display = 'block';
-    } 
+    }
 };
 
 function displayNextWinImage() {
     const winImage = document.getElementById('win-image');
     const winImageContainer = document.getElementById('win-images-container');
 
-    if (winImage && winImageContainer) { 
+    if (winImage && winImageContainer) {
         if (currentImageIndex < imagePaths.length) {
             winImage.src = imagePaths[currentImageIndex];
             winImageContainer.style.display = 'block';
@@ -176,17 +176,17 @@ function displayNextWinImage() {
             winImageContainer.style.display = 'block';
             winImage.style.display = 'block';
         }
-    } 
+    }
 };
 
 function displayIncorrectGuessImage() {
     const winImage = document.getElementById('win-image');
     const winImageContainer = document.getElementById('win-images-container');
     if (winImage && winImageContainer) {
-        winImage.src = '/images/youLost.webp'; 
+        winImage.src = '/images/youLost.webp';
         winImageContainer.style.display = 'block';
         winImage.style.display = 'block';
-    } 
+    }
 };
 
 
@@ -201,15 +201,15 @@ function showLossImage() {
             lossImageContainer.style.display = 'none';
             initGame();
         }, 4000);
-    } 
+    }
 };
 
 function resetImages() {
     const winImage = document.getElementById('win-image');
     const winImageContainer = document.getElementById('win-images-container');
     if (winImage && winImageContainer) {
-        winImage.src = ''; 
-        winImageContainer.style.display = 'none'; 
+        winImage.src = '';
+        winImageContainer.style.display = 'none';
         winImage.style.display = 'none';
     }
 };
@@ -234,3 +234,4 @@ function renderkeyBoardButtons() {
         }
     });
 };
+

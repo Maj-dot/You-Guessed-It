@@ -3,11 +3,16 @@
     //`incorrectGuesses` keeps track of the number of incorrect guesses
     //`maxGuesses` is the maxium number of incorrect guesses allowed
     //`gameOver` a boolean variable stating if the game is over
-    //`wordDisplayArea`, `keyboardArea`, `scoreDisplay`, `resetButton` variable cache the DOM elements
+    //Cached DOM Elements:`wordDisplayArea`, `keyBoardButtons`, `scoreDisplay`, `incorrectGuessesDisplay`, `newGameButton`, 
+                    // `messageDisplay`, `instructionModal`, `closeButton`, `playNowButton`, `winImage` 
 
 
 //Global Functions:
-    //'initializeGame` will set or reset the global variables
-    //`renderGameState` will update the game state on the webpage
-    //`handleClick` handles the letter guesses when a keyboard button is clicked 
+    //'initGame` initializes the game state and update the display
+    //`startGame` will start the game when the play hits play now
+    //`shufflewords` will shuffle to randomized words Array
+    //`getRandomWord` will retrieve a random words from the shuffled array 
+    //`renderwordDisplay` will render the current word with the correct letters
+    //`renderIncorrectGuesses` will render the number of incorrect guesses
+    //`handleGuess` handles the letter guesses when a keyboard button is clicked 
     //`resetGame` resets the game state by calling `initializeGame`    

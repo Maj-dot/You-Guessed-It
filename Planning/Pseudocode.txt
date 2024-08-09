@@ -1,58 +1,41 @@
 // 1) Define the required variables
-let wordToGuess = [];
-let guessedLetters = []; 
-let incorrectGuesses = 0;
-let maxGuesses = 6; 
-let gameOver = false;
-let wordGenerated = false; 
-let score = 0;
+    - wordsToGuess: Array of words to be guessed.
+    - currentWord: The word currently being guessed.
+    - guessedLetters: Array to store letters guessed by the player.
+    - incorrectGuesses: Counter for incorrect guesses.
+    - gameOver: Boolean to track if the game is over.
+    - score: Player's score.
+    - wordIndex: Index to track the current word in the list.
+    - shuffledWords: Array of words shuffled for random selection.
+    - currentImageIndex: Index to track the current win image.
 
-// 2) Cache DOM elements
-const wordDisplayArea = document.getElementById('wordDisplayArea');
-const keyBoardButton = document.getElementById('keyBoardButton');
-const scoreDisplay = document.getElementById('scoreDisplay');
-const resetButton = document.getElementById('resetButton');
-const newGameButton = document.getElementById('newGameButton');
-const startButton = document.getElementById('startButton');
-const wordsList = document.getElementById('wordsList');
+
+// 2) Cache DOM elements// Attach event listeners to the buttons and DOM elements
+    - wordDisplayArea: Reference to the element displaying the word.
+    - keyBoardButtons: Reference to the on-screen keyboard buttons.
+    - scoreDisplay: Reference to the element displaying the score.
+    - incorrectGuessesDisplay: Reference to the element displaying incorrect guesses.
+    - newGameButton: Reference to the new game button.
+    - messageDisplay: Reference to the element displaying messages to the player.
+    - instructionModal: Reference to the modal displaying instructions.
+    - closeButton: Reference to the modal's close button.
+    - playNowButton: Reference to the play now button.
+    - winImage: Reference to the image element for displaying win images.
 
 // 3) Initialize the game
-function initGame() {
-    wordToGuess = getRandomWord(); // Function to get a random word
-    guessedLetters = [];
-    incorrectGuesses = 0;
-    gameOver = false;
-    renderGameState();
-}
+    - Add event listeners to the buttons (new game, play now, close).
+    - On DOMContentLoaded, show the instruction modal.
+    - Initialize the game by setting up the initial state and rendering the game board.
 
 // 4) Render the game state
-function renderGameState() {
-    // Display the word with blanks for unguessed letters
-    // Update guessed letters and incorrect guesses
-    // Display the score and game over message 
-}
+    - Update the display with the current word, guessed letters, score, and incorrect guesses.
+    - Render the on-screen keyboard buttons with correct states (enabled/disabled).
 
-// 5) Handle letter guesses
-function handleClick(event) {
-    if (!gameOver) {
-        let guessedLetter = event.target.value.toUpperCase();
-        if (!sneaker.includes(guessedLetter)) {
-            sneaker.push(guessedLetter);
-            if (wordToGuess.includes(guessedLetter)) {
-                // Correct guess, update word display
-            } else {
-                incorrectGuesses++;
-                if (incorrectGuesses >= maxGuesses) {
-                    gameOver = true;
-                    // Display game over message
-                }
-            }
-        }
-        renderGameState();
-    }
-}
+// 5) Defin the required constants.
+    - maxGuesses: The maximum number of incorrect guesses allowed.
+    - imagePaths: Array of image paths for the win images.
+ 
 
-// 6) Reset the game
-function resetGame() {
-    initializeGame();
-}
+// 7) Reset the game
+    - Reset the game state when the player clicks the new game button.
+    - Reset images and initialize the game state for a new game.
