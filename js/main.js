@@ -43,6 +43,7 @@ keyBoardButtons.forEach(button => {
 });
 document.addEventListener('DOMContentLoaded', function() {
     showInstructions();
+    console.log('Page is fully loaded and ready.');
 });
 
 /*----- functions -----*/
@@ -55,6 +56,7 @@ function closeInstructions() {
 }
 
 function startNewGame() {
+    resetImages();
     score = 0;
     initGame();
 };
@@ -131,6 +133,7 @@ function handleGuess(event) {
             }
         } else {
             incorrectGuesses++;
+            displayIncorrectGuessImage();
             if (incorrectGuesses >= maxGuesses) {
                 gameOver = true;
                 messageDisplay.textContent = `Womp Womp!🥴 Sorry The Correct Word Was ${currentWord}. Start A Game!`;
@@ -142,18 +145,41 @@ function handleGuess(event) {
     updateDisplay();
 };
 
-
 function displayNextWinImage() {
+    console.log('displayNextWinImage called');
     const winImage = document.getElementById('win-image');
-    
-    if (currentImageIndex < imagePaths.length) {
-        winImage.src = imagePaths[currentImageIndex];
-        winImage.style.display = 'block';
-        currentImageIndex++;
+    const winImageContainer = document.getElementById('win-images-container');
+    console.log('winImage element', winImage);
+
+    if (winImage && winImageContainer) {  // Ensure the element exists
+        console.log('Current image index:', currentImageIndex);
+        if (currentImageIndex < imagePaths.length) {
+            console.log('Settting image source to:', imagePaths[currentImageIndex]);
+            winImage.src = imagePaths[currentImageIndex];
+            winImageContainer.style.display = 'block';
+            winImage.style.display = 'block';
+            currentImageIndex++;
+        } else {
+            currentImageIndex = 0;
+            winImage.src = imagePaths[currentImageIndex];
+            winImageContainer.style.display = 'block';
+            winImage.style.display = 'block';
+        }
     } else {
-        currentImageIndex = 0;
-        winImage.src = imagePaths[currentImageIndex];
+        console.error('Element with id "win-image" not found.');
+    }
+}
+
+function displayIncorrectGuessImage() {
+    console.log('displayIncorrectGuessImage called');
+    const winImage = document.getElementById('win-image');
+    const winImageContainer = document.getElementById('win-images-container');
+    if (winImage && winImageContainer) {
+        winImage.src = '/images/youLost.webp'; 
+        winImageContainer.style.display = 'block';
         winImage.style.display = 'block';
+    } else {
+        console.error('Element with id "win-image" not found.');
     }
 }
 
@@ -170,6 +196,16 @@ function showLossImage() {
         }, 4000);
     } else {
         console.error('Image element with id "lossImage" not found.')
+    }
+}
+
+function resetImages() {
+    const winImage = document.getElementById('win-image');
+    const winImageContainer = document.getElementById('win-images-container');
+    if (winImage && winImageContainer) {
+        winImage.src = ''; 
+        winImageContainer.style.display = 'none'; 
+        winImage.style.display = 'none';
     }
 }
 
