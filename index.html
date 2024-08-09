@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,37 +7,24 @@
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
 </head>
-
 <body>
-    <div id="instructionModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>Welcome to Just Guess It!</h2>
-            <p>Objective: Our space-woman "Nola" is trapped on the planet Earth! Let's help her get to her sneakership
-                so she can phone home!</p>
-            <p>Guess the correct sneaker brand before running out of attempts.</p>
-            <ul>HOW TO PLAY:
-                <li>Click on a letter from the onscreen keyboard to make a guess.</li>
-                <li>If your guess is in the word, it will appear in the display and Nola will start to appear!</li>
-                <li>If your guess is not in the word, it will count as an incorrect guess.</li>
-                <li>If you make 6 incorrect guesses, the game is over!</li>
-            </ul>
-            <button id="playNowButton">Play Now</button>
-        </div>
-    </div>
+   <header> 
+   <h1>JUST GUESS IT!🚀</h1>
+</header>
 
-    <h1>JUST GUESS IT!🚀</h1>
     <div class="board">
         <div>Score:<span id="scoreDisplay">0</span></div>
         <div>Incorrect Guesses:<span id="incorrectGuessesDisplay">0</span></div>
     </div>
+
+    <div id="messageDisplay"></div>
     <div id="wordDisplayArea">_ _ _ _ _</div>
     <div id="wordsList" data-words="Nike,Jordan,Adidas,Converse,Puma,Vans,Yeezy,NewBalance,Saucony,ASICS"
         style="display:none;"></div>
-    <div id="messageDisplay"></div>
     <div id="newGameButton">
         <button value="newGameButton">NEW GAME</button>
     </div>
+
     <div id="keyboard">
         <div class="row">
             <button value="A">A</button>
@@ -77,9 +63,25 @@
     <div id="win-images-container" style="display:none;">
         <img id="win-image" src="" alt="Winning Image" style="display:none;" />
     </div>
-    
     <div id="lossImageContainer" style="display:none;">
         <img id="lossImage" src="" alt="Womp Womp!🥴 Sorry The Correct Word Was ${currentWord}." />
+    </div>
+
+    <div id="instructionModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Welcome to Just Guess It!</h2>
+            <p>Objective: Our space-woman "Nola" is trapped on the planet Earth! Let's help her get to her sneakership
+                so she can phone home!</p>
+            <p>Guess the correct sneaker brand before running out of attempts.</p>
+            <ul>HOW TO PLAY:
+                <li>Click on a letter from the onscreen keyboard to make a guess.</li>
+                <li>If your guess is in the word, it will appear in the display and Nola will start to appear!</li>
+                <li>If your guess is not in the word, it will count as an incorrect guess.</li>
+                <li>If you make 6 incorrect guesses, the game is over!</li>
+            </ul>
+            <button id="playNowButton">Play Now</button>
+        </div>
     </div>
 </body>
 

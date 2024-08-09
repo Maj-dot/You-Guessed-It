@@ -4,7 +4,7 @@ const maxGuesses = 6;
 /*----- state variables -----*/
 let wordsToGuess = ["Nike", "Jordan", "Adidas", "Converse", "Puma", "Vans", "Yeezy", "NewBalance", "Saucony", "ASICS"];
 let currentWord = '';
-let guessedLetters = []; //Guessed Letters
+let guessedLetters = [];
 let incorrectGuesses = 0;
 let gameOver = false;
 let score = 0;
@@ -27,7 +27,7 @@ const imagePaths = [
 const wordDisplayArea = document.getElementById('wordDisplayArea');
 const keyBoardButtons = document.querySelectorAll('.row button');
 const scoreDisplay = document.getElementById('scoreDisplay');
-const incorrectGuessesDisplay = document.getElementById('incorrectGuessesDisplay')
+const incorrectGuessesDisplay = document.getElementById('incorrectGuessesDisplay');
 const newGameButton = document.getElementById('newGameButton');
 const messageDisplay = document.getElementById('messageDisplay');
 const instructionModal = document.getElementById('instructionModal');
@@ -43,7 +43,6 @@ keyBoardButtons.forEach(button => {
 });
 document.addEventListener('DOMContentLoaded', function() {
     showInstructions();
-    console.log('Page is fully loaded and ready.');
 });
 
 /*----- functions -----*/
@@ -53,7 +52,7 @@ function showInstructions() {
 
 function closeInstructions() {
     instructionModal.style.display = 'none';
-}
+};
 
 function startNewGame() {
     resetImages();
@@ -64,7 +63,7 @@ function startNewGame() {
 function startGame() {
     closeInstructions();
     initGame();
-}
+};
 
 function shuffleWords(words) {
     for (let i = words.length - 1; i > 0; i--) {
@@ -80,7 +79,7 @@ function getRandomWord() {
         shuffledWords = shuffleWords([...wordsToGuess]);
     }
     return shuffledWords[wordIndex++].toUpperCase();
-}
+};
 
 function initGame() {
     currentWord = getRandomWord();
@@ -127,34 +126,46 @@ function handleGuess(event) {
             if (currentWord.split('').every(letter => guessedLetters.includes(letter))) {
                 score++;
                 gameOver = false;
-                messageDisplay.textContent = "Let's Goooo! Level Up!🚀";
-                setTimeout(newWord, 4000);
-                displayNextWinImage();
+                if (wordIndex >= shuffledWords.length) {
+                    messageDisplay.textContent = "NOLA PHONE HOME! 🚀";
+                    displayFinalWinImage();
+                } else {
+                    messageDisplay.textContent = "Let's Goooo! Level Up!🚀";
+                    setTimeout(newWord, 4000);
+                    displayNextWinImage();
+                }
             }
         } else {
             incorrectGuesses++;
-            displayIncorrectGuessImage();
             if (incorrectGuesses >= maxGuesses) {
                 gameOver = true;
                 messageDisplay.textContent = `Womp Womp!🥴 Sorry The Correct Word Was ${currentWord}. Start A Game!`;
-                setTimeout(initGame, 4000);
                 showLossImage();
+                setTimeout(initGame, 4000);
+            } else {
+                messageDisplay.textContent = "Incorrect Guess! Try Again.";
             }
         }
     }
     updateDisplay();
 };
 
-function displayNextWinImage() {
-    console.log('displayNextWinImage called');
+function displayFinalWinImage() {
     const winImage = document.getElementById('win-image');
     const winImageContainer = document.getElementById('win-images-container');
-    console.log('winImage element', winImage);
+    if (winImage && winImageContainer) {
+        winImage.src = './images/youWin.webp';
+        winImageContainer.style.display = 'block';
+        winImage.style.display = 'block';
+    } 
+};
 
-    if (winImage && winImageContainer) {  // Ensure the element exists
-        console.log('Current image index:', currentImageIndex);
+function displayNextWinImage() {
+    const winImage = document.getElementById('win-image');
+    const winImageContainer = document.getElementById('win-images-container');
+
+    if (winImage && winImageContainer) { 
         if (currentImageIndex < imagePaths.length) {
-            console.log('Settting image source to:', imagePaths[currentImageIndex]);
             winImage.src = imagePaths[currentImageIndex];
             winImageContainer.style.display = 'block';
             winImage.style.display = 'block';
@@ -165,23 +176,19 @@ function displayNextWinImage() {
             winImageContainer.style.display = 'block';
             winImage.style.display = 'block';
         }
-    } else {
-        console.error('Element with id "win-image" not found.');
-    }
-}
+    } 
+};
 
 function displayIncorrectGuessImage() {
-    console.log('displayIncorrectGuessImage called');
     const winImage = document.getElementById('win-image');
     const winImageContainer = document.getElementById('win-images-container');
     if (winImage && winImageContainer) {
         winImage.src = '/images/youLost.webp'; 
         winImageContainer.style.display = 'block';
         winImage.style.display = 'block';
-    } else {
-        console.error('Element with id "win-image" not found.');
-    }
-}
+    } 
+};
+
 
 function showLossImage() {
     const lossImageContainer = document.getElementById('lossImageContainer');
@@ -194,10 +201,8 @@ function showLossImage() {
             lossImageContainer.style.display = 'none';
             initGame();
         }, 4000);
-    } else {
-        console.error('Image element with id "lossImage" not found.')
-    }
-}
+    } 
+};
 
 function resetImages() {
     const winImage = document.getElementById('win-image');
@@ -207,7 +212,7 @@ function resetImages() {
         winImageContainer.style.display = 'none'; 
         winImage.style.display = 'none';
     }
-}
+};
 
 function newWord() {
     currentWord = getRandomWord();
