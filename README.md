@@ -6,6 +6,10 @@
 
 The game ends when you either guess the word correctly or make six incorrect guesses. After each successful guess, you level up and the game continues with a new word. If you guess the final word correctly, Nola finally gets to phone home!
 
+## Screenshot
+
+![Game Screenshot](./images/screenshot.png)
+
 ## Features
 
 - **Word Guessing**: Guess letters to reveal the sneaker brand.
@@ -34,6 +38,36 @@ To play the game:
 
 1. Click the link here * <https://github.com/Maj-dot/You-Guessed-It.git>
 3. Enjoy the game!
+
+## Future Improvements 
+
+1. **Additional Levels and Word Categories**
+   - Introduce new levels with different themes or categories, such as movie titles, famous cities, or other popular brands.
+   - Allow players to select a category or have random categories each time they play.
+
+2. **Multiplayer Mode**
+   - Implement a multiplayer mode where two players can take turns guessing the word.
+   - Add a competitive element with a scoring system to determine the winner after a set number of rounds.
+
+3. **Hints and Power-ups**
+   - Add a hint system where players can use earned points to reveal a letter or get a clue about the word.
+   - Introduce power-ups that allow players to skip a difficult word or get extra guesses.
+
+4. **Leaderboard**
+   - Implement a global or local leaderboard where players can see how their scores compare to others.
+   - Allow players to save their scores and see their ranking.
+
+5. **Sound Effects and Background Music**
+   - Add sound effects for correct and incorrect guesses, as well as background music to enhance the gaming experience.
+   - Allow players to toggle the sound on or off.
+
+6. **Enhanced Visuals and Animations**
+   - Improve the game's visuals with more detailed animations when the player guesses a letter correctly or incorrectly.
+   - Add animated transitions between levels or when the game ends.
+
+7. **Mobile Optimization**
+   - Further optimize the game for mobile devices with touch-friendly controls and responsive design improvements.
+   - Consider creating a mobile app version of the game.  
 
 ## Credits
 
