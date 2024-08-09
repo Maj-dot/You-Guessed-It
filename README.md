@@ -30,9 +30,9 @@ The game ends when you either guess the word correctly or make six incorrect gue
 
 ## Installation
 
-To play the game locally:
+To play the game:
 
-1. Click the link here 
+1. Click the link here * <https://github.com/Maj-dot/You-Guessed-It.git>
 3. Enjoy the game!
 
 ## Credits

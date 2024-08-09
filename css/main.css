@@ -8,7 +8,7 @@ html, body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: linear-gradient(to bottom, #000428, #004e92);
+    background: linear-gradient(to bottom, #00008F, #FFFFFF);
     color: white;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
