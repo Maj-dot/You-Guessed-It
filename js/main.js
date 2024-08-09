@@ -2,7 +2,7 @@
 const maxGuesses = 6;
 
 /*----- state variables -----*/
-let wordsToGuess = ["Nike", "Jordan", "Adidas", "Converse", "Puma", "Vans", "Yeezys", "NewBalance", "Saucony", "ASICS"];
+let wordsToGuess = ["Nike", "Jordan", "Adidas", "Converse", "Puma", "Vans", "Yeezy", "NewBalance", "Saucony", "ASICS"];
 let currentWord = '';
 let guessedLetters = []; //Guessed Letters
 let incorrectGuesses = 0;
@@ -135,7 +135,12 @@ function newWord() {
 
 function renderkeyBoardButtons() {
     keyBoardButtons.forEach(button => {
-        let letter = button.value.toUperCase();
+        let letter = button.value.toUpperCase();
         button.disabled = guessedLetters.includes(letter);
+        if (button.disabled) {
+            button.classList.add('clicked');
+        } else {
+            button.classList.remove('clicked');
+        }
     });
 };
