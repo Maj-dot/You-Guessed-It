@@ -118,11 +118,18 @@ function handleGuess(event) {
                 gameOver = true;
                 messageDisplay.textContent = `Womp Womp!🥴 Sorry The Correct Word Was ${currentWord}. Start A Game!`;
                 setTimeout(initGame, 4000);
+                showLossImage();
             }
         }
     }
     updateDisplay();
 };
+
+function showLossImage() {
+    const lossImageContainer = document.getElementById('lossImageContainer');
+    const lossImage = document.getElementById('lossImage');
+    lossImage.src = '~/code/ga/Projects/YOU-GUESSED-IT/images/youLost.webp'
+}
 
 function newWord() {
     currentWord = getRandomWord();
